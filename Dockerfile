@@ -17,6 +17,6 @@ RUN apt-get install -y inotify-tools nginx apache2 openssh-server
 RUN apt-get install -y git 
 RUN mkdir -p  /var/www/
 RUN mkdir -p /var/log/mono
-RUN git clone git@github.com:MarFarMa/ServiceStack.Hello.git /var/www/hello
+RUN git clone https://github.com/MarFarMa/ServiceStack.Hello.git /var/www/hello
 RUN cd /var/www/hello
 RUN xbuild
