@@ -21,4 +21,4 @@ RUN mkdir -p  /var/www/
 RUN mkdir -p /var/log/mono
 RUN git clone https://github.com/MarFarMa/ServiceStack.Hello.git /var/www/hello
 RUN cd /var/www/hello
-RUN xbuild
+RUN xbuild ./ServiceStack.Hello.sln
