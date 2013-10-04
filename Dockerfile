@@ -45,4 +45,4 @@ RUN mv -f /var/www/hello/fastcgi_params /etc/nginx/fastcgi_params
 RUN mv -f /var/www/hello/default /etc/nginx/sites-available/default
 EXPOSE 9000
 CMD /usr/sbin/nginx -t && service nginx start
-CMD /usr/bin/fastcgi-mono-server4 /applications=/:/var/www/hello /socket=tcp:127.0.0.1:9000 /logfile=/var/log/mono/fastcgi.log /printlog=True
+CMD /usr/bin/fastcgi-mono-server4 /applications=/:/var/www/hello /socket=tcp:127.0.0.1:9000 /logfile=/var/log/mono/fastcgi.log /printlog=True &
