@@ -44,5 +44,6 @@ RUN cd /var/www/hello && /usr/bin/xbuild ServiceStack.Hello.sln
 #RUN sed -i '1s/^/fastcgi_param  PATH_INFO          "";\'$'\n/' /etc/nginx/fastcgi_params 
 RUN mv -f /var/www/hello/fastcgi_params /etc/nginx/fastcgi_params
 RUN mv -f /var/www/hello/default /etc/nginx/sites-available/default
+RUN update-rc.d nginx defaults
 EXPOSE 80
-CMD ["service nginx start && /usr/bin/fastcgi-mono-server4 /applications=/:/var/www/hello /socket=tcp:127.0.0.1:9000 /logfile=/var/log/mono/fastcgi.log /printlog=True &"]
+CMD ["/usr/bin/fastcgi-mono-server4","/applications=/:/var/www/hello /socket=tcp:127.0.0.1:9000 /logfile=/var/log/mono/fastcgi.log /printlog=True"]
