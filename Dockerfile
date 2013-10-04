@@ -7,24 +7,18 @@ MAINTAINER Pauli Price "pauli.price@gmail.com"
 
 # make sure the package repository is up to date
 RUN echo "deb http://archive.ubuntu.com/ubuntu raring main universe" > /etc/apt/sources.list
-
 RUN apt-get update
+
 RUN apt-get install -y mono-complete
 RUN apt-get install -y mono-fastcgi-server4
 RUN apt-get install -y inotify-tools nginx apache2 openssh-server
 RUN apt-get install -y git ca-certificates
 RUN apt-get install -y curl
-# http://stackoverflow.com/a/14538345/149060 - workaround bug with 4.0 & 4.5 dependencies
-RUN fastcgi=$(which fastcgi-mono-server4) && sudo sed -i.bak -e 's/4\\.0/4.5/' $fastcgi && fastcgi_src='/usr/lib/mono/4.0/fastcgi-mono-server4.exe' && fastcgi_dest='/usr/lib/mono/4.5/fastcgi-mono-server4.exe' && if [ -f "$fastcgi_src" ]; then sudo mv $fastcgi_src $fastcgi_dest; fi;
 
 RUN git config --global http.sslVerify true
 RUN git config --global http.sslCAinfo  /etc/ssl/certs/ca-certificates.crt
 RUN mkdir -p  /var/www/
 RUN mkdir -p /var/log/mono
-RUN ls
-RUN ls
-RUN ls
-RUN ls
 RUN git clone https://github.com/MarFarMa/ServiceStack.Hello.git /var/www/hello
 WORKDIR /var/www/hello
 
