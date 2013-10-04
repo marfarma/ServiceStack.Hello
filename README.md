@@ -37,3 +37,5 @@ The setup largely follows this tutorial, http://jokecamp.wordpress.com/2013/06/3
             Error Failed to process connection. Reason: The object was used after being disposed.
 
  
+Known Issue
+===========
