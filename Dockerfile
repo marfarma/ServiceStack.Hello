@@ -21,6 +21,7 @@ RUN git config --global http.sslVerify true
 RUN git config --global http.sslCAinfo  /etc/ssl/certs/ca-certificates.crt
 RUN mkdir -p  /var/www/
 RUN mkdir -p /var/log/mono
+
 RUN git clone https://github.com/MarFarMa/ServiceStack.Hello.git /var/www/hello
 
 # TODO: symlink instead:
