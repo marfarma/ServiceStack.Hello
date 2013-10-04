@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/sbin/service nginx start
+/usr/bin/fastcgi-mono-server4 /applications=/:/var/www/hello /socket=tcp:127.0.0.1:9000 /logfile=/var/log/mono/fastcgi.log /printlog=True
+
