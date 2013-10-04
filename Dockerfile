@@ -39,3 +39,6 @@ RUN cd /var/www/hello && /usr/bin/xbuild ServiceStack.Hello.sln
 RUN sed -e '/request_filename/ s/^#*/#/' -i.old /etc/nginx/fastcgi_params 
 RUN sed -i '1s/^/fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;\'$'\n/' /etc/nginx/fastcgi_params
 RUN sed -i '1s/^/fastcgi_param  PATH_INFO          "";\'$'\n/' /etc/nginx/fastcgi_params 
+RUN mv -f /var/www/hello/default /etc/nginx/sites-available/default
+RUN /usr/sbin/nginx -t && service nginx reload
+RUN /usr/bin/fastcgi-mono-server4 /applications=/:/var/www/hello /socket=tcp:127.0.0.1:9000 /logfile=/var/log/mono/fastcgi.log /printlog=True
