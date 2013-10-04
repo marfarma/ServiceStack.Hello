@@ -23,8 +23,7 @@ RUN git clone https://github.com/MarFarMa/ServiceStack.Hello.git /var/www/hello
 WORKDIR /var/www/hello
 
 # TODO: symlink instead:
-RUN curl -O -L  http://nuget.org/nuget.exe
-RUN mv nuget.exe /usr/local/bin
+RUN cp /var/www/hello/lib/nuget.exe /usr/local/bin
 RUN cp /var/www/hello/lib/Microsoft.Build.dll /usr/local/bin
 
 RUN mozroots --import --sync
