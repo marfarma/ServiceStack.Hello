@@ -34,6 +34,6 @@ RUN echo | openssl s_client -showcerts -connect nugetgallery.blob.core.windows.n
 RUN echo | openssl s_client -showcerts -connect nuget.org:443 2>&1 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >> cert.pem
 RUN openssl crl2pkcs7 -nocrl -certfile cert.pem -out cert.p7b
 RUN certmgr -add -c -m Trust ./cert.p7b
-RUN mono --runtime=v4.0 /usr/local/bin/nuget.exe install ./packages.config -o ./packages
+RUN mono --runtime=v4.0 /usr/local/bin/nuget.exe install /var/www/hello/packages.config -o /var/www/hello/packages
 
 #RUN xbuild /var/www/hello/ServiceStack.Hello.sln
