@@ -36,4 +36,4 @@ RUN openssl crl2pkcs7 -nocrl -certfile cert.pem -out cert.p7b
 RUN certmgr -add -c -m Trust ./cert.p7b
 RUN mono --runtime=v4.0 /usr/local/bin/nuget.exe install /var/www/hello/packages.config -o /var/www/hello/packages
 
-#RUN xbuild /var/www/hello/ServiceStack.Hello.sln
+RUN /usr/bin/xbuild /var/www/hello/ServiceStack.Hello.sln
