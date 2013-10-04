@@ -14,6 +14,8 @@ RUN apt-get install -y mono-fastcgi-server4
 RUN apt-get install -y inotify-tools nginx apache2 openssh-server
 RUN apt-get install -y git ca-certificates
 RUN apt-get install -y curl
+# http://stackoverflow.com/a/14538345/149060 - workaround bug with 4.0 & 4.5 dependencies
+RUN fastcgi=$(which fastcgi-mono-server4) && sudo sed -i.bak -e 's/4\\.0/4.5/' $fastcgi && fastcgi_src='/usr/lib/mono/4.0/fastcgi-mono-server4.exe' && fastcgi_dest='/usr/lib/mono/4.5/fastcgi-mono-server4.exe' && if [ -f "$fastcgi_src" ]; then sudo mv $fastcgi_src $fastcgi_dest; fi;
 
 RUN git config --global http.sslVerify true
 RUN git config --global http.sslCAinfo  /etc/ssl/certs/ca-certificates.crt
