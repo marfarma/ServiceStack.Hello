@@ -8,9 +8,9 @@ Run the Docker Hello World Example Service
 
 In your host machine with docker installed, run the image as follows (ctrl-C to exit):
 
-    vagrant@precise64:~$ sudo docker pull marfarma/servicestack
+    vagrant@precise64:~$ sudo docker pull marfarma/servicestack.hello
 
-    vagrant@precise64:~$ sudo docker run marfarma/servicestack
+    vagrant@precise64:~$ sudo docker run marfarma/servicestack.hello
      * Starting nginx nginx
        ...done.
 
