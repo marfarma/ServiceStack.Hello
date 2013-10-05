@@ -30,6 +30,9 @@ To see the service running in the docker container, you would use the port from 
  
 To stop the server you can use "Control+C"
 
+Known Issue
+===========
+
 The setup largely follows this tutorial, http://jokecamp.wordpress.com/2013/06/30/servicestack-api-with-fastcgi-mono-server-and-nginx-hosted-on-digitalocean/ and also exhibits the same bug:
 
 > With every request, even successful requests I see the below message logged in the console. I do not know the source of this but the API should still be working fine and returning results.
@@ -37,5 +40,3 @@ The setup largely follows this tutorial, http://jokecamp.wordpress.com/2013/06/3
             Error Failed to process connection. Reason: The object was used after being disposed.
 
  
-Known Issue
-===========
